@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta author="Прошивалко Егор">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="dist-instalation-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>SoftSolutions.ru - Дистанционная установка</title>
+    <link rel="icon" type="image/png" href="favicon.ico.ico">
+</head>
+<body>
+<a href="start.html" class="nav-button">SoftSolutions.ru</a>
+
+
+<div class="container-form">
+    <div class="product-card">
+        <img src="archi.webp" alt="Adobe Creative Cloud" class="product-image">
+        <h3>Архитектурные программы:</h3>
+        <li>Autodesk Revit, 3Ds Max, Autocad, Maya</li>
+        <li>ArchiCad 25 / 26 / 27</li>
+        <li>Lumion Pro 12.5</li>
+        <li>Rhinoceros 8.0-8.12</li>
+        <li>Sketchup 2020-2024</li>
+        <p><br></p>
+        <h3>Дополнения:</h3>
+           <li>Enscape (3.5-4.1)</li>
+           <li>SPDD для AutoCad</li>
+           <li>Arnold Renderer</li>
+           <li>Chaos (Corona Renderer, V-Ray, Cosmos, Vantage)<br></li>
+        </p>
+        <button class="price-button" onclick="openModal()">Показать прайс-лист</button>
+        <div id="price-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h3>Установка архитектурных программ через<br> Anydesk / Rudesktop</h3>
+                <ul>
+                    750₽ / 1 программа<br>
+                    1200₽ / 2 программы<br>
+                    1500₽ / 3 программы<br>
+                    1850₽ / 4 программы<br>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const card = document.querySelector('.product-card');
+        setTimeout(() => card.classList.add('animate'), 100); // Пауза перед анимацией
+    });
+</script>
+
+<script>
+  // Функция для открытия модального окна
+function openModal() {
+    const modal = document.getElementById("price-modal"); // Получаем элемент модального окна
+    const modalContent = modal.querySelector(".modal-content"); // Получаем содержимое модального окна
+    modal.classList.add("active"); // Добавляем класс, чтобы включить анимацию видимости модального окна
+    setTimeout(() => modalContent.classList.add("active"), 10); // С небольшой задержкой добавляем класс, чтобы включить анимацию масштаба
+}
+
+// Функция для закрытия модального окна
+function closeModal() {
+    const modal = document.getElementById("price-modal"); // Получаем элемент модального окна
+    const modalContent = modal.querySelector(".modal-content"); // Получаем содержимое модального окна
+    modalContent.classList.remove("active"); // Убираем класс, чтобы начать анимацию уменьшения масштаба
+    setTimeout(() => modal.classList.remove("active"), 400); // Задержка, чтобы сначала завершилась анимация масштаба, а затем скрыть модальное окно
+}
+
+// Закрытие модального окна при клике вне его
+window.onclick = function(event) {
+    const modal = document.getElementById("price-modal"); // Получаем элемент модального окна
+    if (event.target === modal) { // Проверяем, был ли клик вне содержимого модального окна
+        closeModal(); // Закрываем модальное окно
+    }
+}
+</script>
+
+
+</body>
+</html>

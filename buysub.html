@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta author="Прошивалко Егор"> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Мета-тег для адаптивности -->
+    <link rel="stylesheet" type="text/css" href="styles-buysub.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">
+</head>
+<body>
+    <a href="start.html" class="nav-button">SoftSolutions.ru</a>
+    <div class="container">
+        <form class="registration-form" id="registrationForm">
+            <h2>Оставить заявку на подключение</h2>
+            <div class="form-group">
+                <label for="name">Имя</label>
+                <input type="text" id="name" placeholder="Введите ваше имя" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Введите ваш email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Пароль</label>
+                <input type="password" id="password" placeholder="Введите ваш пароль" required>
+            </div>
+            <button type="submit" id="submitButton">Зарегистрироваться</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+    <script> document.getElementById('registrationForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Предотвращаем стандартное поведение отправки
+        const container = document.querySelector('.container');
+        
+        // Добавляем класс для анимации отправки
+        container.classList.add('submit-animation');
+    
+        // Удаляем класс после завершения анимации, чтобы анимация сработала при повторной отправке
+        setTimeout(() => {
+            container.classList.remove('submit-animation');
+        }, 200); // Время, соответствующее длительности анимации
+    });</script>
+</body>
+</html>

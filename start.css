@@ -1,0 +1,279 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+    background-image: url('back.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow-x: hidden; /* Скрываем горизонтальную прокрутку */
+}
+
+.navbar {
+    background-color: rgba(51, 51, 51, 0.8);
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1000; /* Добавьте эту строку */
+}
+
+.brand-name {
+    color: white;
+    font-size: 18px;
+    margin-right: 20px;
+    flex: 1;
+}
+
+.menu-toggle {
+    display: none;
+    color: white;
+    font-size: 32px;
+    cursor: pointer;
+    padding: 10px;
+    transition: transform 0.3s;
+}
+
+.menu-toggle:hover {
+    transform: scale(1.1);
+}
+
+.nav-list {
+    list-style-type: none;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.nav-item {
+    position: relative;
+    color: white;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.nav-item a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-item:hover {
+    background-color: #555;
+    border-radius: 10px;
+}
+
+.nav-item a:hover {
+    color: #fff;
+    border-radius: 10px;
+}
+
+.nav-item a:visited {
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+        margin-top: 10px;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        max-width: 100vw; /* Ограничиваем ширину экрана */
+        width: 100%;
+        align-items: flex-start;
+        display: none;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        margin-top: 10px;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: rgba(51, 51, 51, 0.98);
+        border-radius: 5px;
+        padding: 10px 0;
+        overflow-x: hidden; /* Предотвращаем горизонтальную прокрутку */
+        z-index: 1000; /* Добавьте эту строку */
+    }
+
+    .nav-list.active {
+        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+        z-index: 1000; /* Добавьте эту строку */
+    }
+
+    .nav-item {
+        width: 100%;
+        text-align: left;
+        padding: 12px 20px;
+        margin: 0; /* Убираем отступы для устранения горизонтальной прокрутки */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+}
+
+.container-form {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: auto;
+    margin: 20px;
+    gap: 20px;
+}
+
+
+.subscription-form {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    max-height: 200px;
+    width: 100%;
+    margin-left: 15px;
+    box-sizing: border-box;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.subscription-form h2 {
+    text-align: center;
+    margin-bottom: 5px;
+    font-size: 24px;
+    color: #333;
+}
+
+.subscription-form label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #555;
+    display: block;
+}
+
+.subscription-form input[type="text"],
+.subscription-form input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.subscription-form input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.subscription-form input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.result {
+    text-align: center;
+    margin-top: 0px;
+    font-size: 18px;
+    color: #333;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.product-card, .product-install {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    padding: 20px;
+    margin-left: 20px;
+    text-align: center;
+    box-sizing: border-box;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.product-image, .product-install-image {
+    max-width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    margin-bottom: 0px;
+}
+
+.product-card h3, .product-install h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.product-card p, .product-install p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.btn-buy {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-buy:hover {
+    background-color: #45a049;
+}
+
+@media (max-width: 768px) {
+    .container-form {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .subscription-form, .product-card, .product-install {
+        max-width: 100%;
+        margin: 0 0 20px 0;
+        padding: 10px;
+    }
+
+    .product-card img, .product-install img {
+        width: 80%;
+        height: auto;
+        margin-bottom: 5px;
+        border-radius: 10px;
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate {
+    animation: fade-in 1s ease-out forwards;
+}
