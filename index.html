@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta author="Прошивалко Егор">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="start.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>SoftSolutions.ru - Стартовая страница</title>
+    <link rel="icon" type="image/png" href="favicon.ico.ico">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="brand-name">SoftSolutions.ru</div> <!-- Название компании -->
+        <div class="menu-toggle" id="menuToggle">&#9776;</div> <!-- Значок меню -->
+        <ul class="nav-list" id="navList">
+            <li class="nav-item">
+                <a href="buysub.html">Оформить подписку</a>
+            </li>
+            <li class="nav-item">
+                <a href="instruct.html">Инструкция по активации</a>
+            </li>
+            <li class="nav-item">
+                <a href="https://t.me/license_salesman">Техническая поддержка</a>
+            </li>
+        </ul>
+    </nav>
+    <script>
+        // JavaScript для управления отображением меню
+        const menuToggle = document.getElementById('menuToggle');
+        const navList = document.getElementById('navList');
+
+        menuToggle.addEventListener('click', () => {
+            navList.classList.toggle('active'); // Добавляем класс active для отображения меню
+        });
+    </script>
+
+    <div class="container-form">
+    <div class="product-card">
+        <img src="orig.png" alt="Adobe Creative Cloud" class="product-image">
+        <h3>Adobe Creative Cloud</h3>
+        <p>Подписка на полный пакет приложений для творчества и дизайна.</p>
+        <p>  2 устройства, Нейросеть - 1000 кредитов/месяц</p>
+       
+        <a href="buysub.html" class="btn-buy">Приобрести подписку</a>
+    </div>
+
+    <div class="product-install">
+        <img src="sysadmin3.jpg" alt="Adobe Creative Cloud" class="product-image">
+        <h3>Дистанционная установка </h3>
+        <p>Необходимых Вам программ</p>
+       
+        <a href="dist-instalation.html" class="btn-buy">Заказать</a>
+    </div>
+
+    <div class="subscription-form">
+        <h2>Проверка срока подписки</h2>
+        <form id="subscriptionForm">
+            <label for="purchaseId"></label>
+            <input type="text" id="purchaseId" name="purchaseId" placeholder="Введите почту аккаунта с подпиской" required>
+            <input type="submit" value="Проверить">
+        </form>
+
+        <div class="result" id="result"></div>
+    </div>
+   
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const card = document.querySelector('.product-card');
+            setTimeout(() => card.classList.add('animate'), 100); // Пауза перед анимацией
+        });
+    </script>
+    
+    
+   
+</div>
+
+
+<script>
+    document.getElementById('subscriptionForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // Получаем ID покупки из поля
+        const purchaseId = document.getElementById('purchaseId').value;
+
+        // Здесь должна быть отправка данных на сервер и получение ответа.
+        // Для примера просто имитируем ответ через JavaScript.
+
+        // Пример "ответа" от сервера
+        const expirationDate = '2024-12-31'; // Пример даты окончания подписки
+
+        // Выводим результат
+        document.getElementById('result').innerHTML = `Подписка активна до: <br> ${expirationDate}`;
+    });
+</script>
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const cards = document.querySelectorAll('.product-card, .product-install'); // Выбор карточек
+
+        function animateCards() {
+            cards.forEach(card => {
+                const cardPosition = card.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+
+                // Проверка, находится ли карточка в зоне видимости
+                if (cardPosition < windowHeight - 50) { // 50px от нижней границы экрана
+                    card.classList.add('animate-card');
+                }
+            });
+        }
+
+        // Запуск функции при загрузке страницы и при прокрутке
+        window.addEventListener('scroll', animateCards);
+        animateCards(); // Запускаем при загрузке страницы, если карточки сразу видны
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    const cards = document.querySelectorAll('.product-card, .product-install, .subscription-form');
+
+    cards.forEach((card, index) => {
+        setTimeout(() => {
+            card.classList.add('animate');
+        }, index * 300); // Увеличенная задержка для плавного эффекта
+    });
+    });
+</script>
+
+
+</body>
+</html>
